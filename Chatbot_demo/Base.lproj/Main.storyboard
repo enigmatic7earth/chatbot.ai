@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="CWE-AY-STy">
+    <device id="ipad9_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Chatbot_demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1ev-Pg-Sms"/>
+                        <viewControllerLayoutGuide type="bottom" id="OWL-ev-TFX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EPO-yp-AEI">
+                                <rect key="frame" x="658" y="914" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="gfd-kB-dHh"/>
+                                    <constraint firstAttribute="height" constant="80" id="pl5-9b-bSm"/>
+                                </constraints>
+                                <state key="normal" image="chat-icon"/>
+                                <connections>
+                                    <action selector="chatClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xXo-Bg-II4"/>
+                                    <segue destination="FTZ-T7-Txm" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="jz7-T4-Q1i"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="EPO-yp-AEI" secondAttribute="trailing" constant="30" id="Ubv-yq-1o9"/>
+                            <constraint firstItem="OWL-ev-TFX" firstAttribute="top" secondItem="EPO-yp-AEI" secondAttribute="bottom" constant="30" id="jEh-yD-CYg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="dYS-mG-Qsi"/>
+                    <connections>
+                        <outlet property="chatButton" destination="EPO-yp-AEI" id="FyO-Z0-yfQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="283.59375" y="118.94531249999999"/>
+        </scene>
+        <!--Chat window-->
+        <scene sceneID="pLv-Xv-hhf">
+            <objects>
+                <viewController storyboardIdentifier="chatViewController" id="FTZ-T7-Txm" customClass="ChatBotViewController" customModule="Chatbot_demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BOd-eH-obx"/>
+                        <viewControllerLayoutGuide type="bottom" id="qpN-Cu-RtI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fwU-ws-fOR">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdm-bu-c9E">
+                                <rect key="frame" x="20" y="40" width="698" height="21"/>
+                                <color key="backgroundColor" red="0.92431145910000001" green="0.62296241519999995" blue="0.017761113120000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Heo-Gx-JBK">
+                                <rect key="frame" x="728" y="30" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Rwo-Nd-LP9"/>
+                                    <constraint firstAttribute="width" constant="30" id="cIj-uN-5NA"/>
+                                </constraints>
+                                <state key="normal" image="cancel-button"/>
+                                <connections>
+                                    <action selector="closeChat:" destination="FTZ-T7-Txm" eventType="touchUpInside" id="zR0-Ah-sZw"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8n-HH-1E8">
+                                <rect key="frame" x="20" y="71" width="728" height="399"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T9a-5L-5Vy">
+                                <rect key="frame" x="20" y="490" width="658" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="2dd-ET-KH0"/>
+                                </constraints>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJZ-HQ-Vsw">
+                                <rect key="frame" x="688" y="490" width="60" height="44"/>
+                                <color key="backgroundColor" red="0.92431145910000001" green="0.62296241519999995" blue="0.017761113120000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="PCB-AW-Y2y"/>
+                                </constraints>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="sendMessage:" destination="FTZ-T7-Txm" eventType="touchUpInside" id="5BS-sI-NHy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="sJZ-HQ-Vsw" firstAttribute="centerY" secondItem="fwU-ws-fOR" secondAttribute="centerY" id="3gZ-Cv-I5V"/>
+                            <constraint firstAttribute="trailing" secondItem="sJZ-HQ-Vsw" secondAttribute="trailing" constant="20" id="5xM-Hv-1Qa"/>
+                            <constraint firstItem="T9a-5L-5Vy" firstAttribute="top" secondItem="s8n-HH-1E8" secondAttribute="bottom" constant="20" id="BXT-TF-Xtb"/>
+                            <constraint firstItem="sJZ-HQ-Vsw" firstAttribute="leading" secondItem="T9a-5L-5Vy" secondAttribute="trailing" constant="10" id="CP9-8p-L9y"/>
+                            <constraint firstItem="Wdm-bu-c9E" firstAttribute="leading" secondItem="fwU-ws-fOR" secondAttribute="leading" constant="20" id="JYX-EA-IYE"/>
+                            <constraint firstItem="T9a-5L-5Vy" firstAttribute="centerY" secondItem="fwU-ws-fOR" secondAttribute="centerY" id="KrB-SO-kKe"/>
+                            <constraint firstAttribute="trailing" secondItem="Heo-Gx-JBK" secondAttribute="trailing" constant="10" id="MaO-lj-Rab"/>
+                            <constraint firstItem="Wdm-bu-c9E" firstAttribute="top" secondItem="BOd-eH-obx" secondAttribute="bottom" constant="20" id="NRC-lU-tCk"/>
+                            <constraint firstItem="T9a-5L-5Vy" firstAttribute="leading" secondItem="fwU-ws-fOR" secondAttribute="leading" constant="20" id="RGd-oR-Y6i"/>
+                            <constraint firstItem="sJZ-HQ-Vsw" firstAttribute="height" secondItem="T9a-5L-5Vy" secondAttribute="height" id="WIE-l9-a2f"/>
+                            <constraint firstItem="Heo-Gx-JBK" firstAttribute="leading" secondItem="Wdm-bu-c9E" secondAttribute="trailing" constant="10" id="fQd-c4-0kp"/>
+                            <constraint firstItem="Heo-Gx-JBK" firstAttribute="top" secondItem="BOd-eH-obx" secondAttribute="bottom" constant="10" id="kzC-90-zhp"/>
+                            <constraint firstItem="s8n-HH-1E8" firstAttribute="top" secondItem="Wdm-bu-c9E" secondAttribute="bottom" constant="10" id="t11-IA-NMH"/>
+                            <constraint firstItem="s8n-HH-1E8" firstAttribute="leading" secondItem="fwU-ws-fOR" secondAttribute="leading" constant="20" id="uoU-Lf-XgG"/>
+                            <constraint firstAttribute="trailing" secondItem="s8n-HH-1E8" secondAttribute="trailing" constant="20" id="y5L-JE-H2d"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Chat window" id="fnN-PP-bxw"/>
+                    <connections>
+                        <outlet property="chatWindowTextView" destination="s8n-HH-1E8" id="tP2-dZ-92l"/>
+                        <outlet property="messageTextView" destination="T9a-5L-5Vy" id="EgD-56-sJ0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HLk-bu-RVE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1005.46875" y="111.91406249999999"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PZw-a0-RnO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CWE-AY-STy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xpz-Mx-Kh4">
+                        <rect key="frame" x="0.0" y="20" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.92431145910000001" green="0.62296241519999995" blue="0.017761113120000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="mjm-oX-IaV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z3w-q1-cOZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-412" y="119"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cancel-button" width="64" height="64"/>
+        <image name="chat-icon" width="64" height="64"/>
+    </resources>
+</document>
